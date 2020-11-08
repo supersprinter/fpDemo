@@ -1,6 +1,8 @@
-package com.finnplay.demo.dto;
+package com.finnplay.demo.model.dto;
 
 import lombok.*;
+
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -8,7 +10,7 @@ import lombok.*;
 @Builder
 public class UserDTO
 {
-    private Integer id;
+    private UUID id;
     private String username;
     private String firstName;
     private String lastName;

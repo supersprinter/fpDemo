@@ -19,61 +19,60 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
+        <div class="content-center">
+            <h2>Welcome <i>${pageContext.request.userPrincipal.name}</i></h2>
+        </div>
 
-
-        <form:form method="POST" modelAttribute="userForm" class="form-signin">
-            <h2>Welcome ${pageContext.request.userPrincipal.name} | <a class="logout" onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
-            <h2 class="form-signin-heading">Edit your account</h2>
-
-            <c:if test="${SUCCESS_MESSAGE != null}">
-                <h5 class="status_message">${SUCCESS_MESSAGE}</h5>
-            </c:if>
+        <form:form method="POST" modelAttribute="userForm" class="form-center">
+            <h4 class="form-center-heading">Edit your account</h4>
+            <span class="success_msg">${success}</span>
 
             <form:hidden path="id" />
 
             <spring:bind path="username">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
                     <form:input type="text" path="username" class="form-control" placeholder="Username"
-                                autofocus="true"></form:input>
-                    <form:errors path="username"></form:errors>
+                                autofocus="true"/>
+                    <form:errors path="username"/>
                 </div>
             </spring:bind>
 
 
             <spring:bind path="firstName">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="firstName" class="form-control" placeholder="First Name"></form:input>
-                    <form:errors path="firstName"></form:errors>
+                    <form:input type="text" path="firstName" class="form-control" placeholder="First Name"/>
+                    <form:errors path="firstName"/>
                 </div>
             </spring:bind>
 
             <spring:bind path="lastName">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"></form:input>
-                    <form:errors path="lastName"></form:errors>
+                    <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"/>
+                    <form:errors path="lastName"/>
                 </div>
             </spring:bind>
 
             <spring:bind path="email">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="email" class="form-control" placeholder="Email"></form:input>
-                    <form:errors path="email"></form:errors>
+                    <form:input type="text" path="email" class="form-control" placeholder="Email"/>
+                    <form:errors path="email"/>
                 </div>
             </spring:bind>
 
             <spring:bind path="birthday">
                 <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" id="datepicker" path="birthday" class="form-control" placeholder="Birthday"></form:input>
-                    <form:errors path="birthday"></form:errors>
+                    <form:input type="text" id="datepicker" path="birthday" class="form-control" placeholder="Birthday"/>
+                    <form:errors path="birthday"/>
                 </div>
             </spring:bind>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        </form:form>
 
-        </form:form>
-        <form:form method="POST" modelAttribute="userForm" class="form-signin" action="/changePassword">
-            <button class="btn btn-lg btn-info btn-block" type="submit">Change Password</button>
-        </form:form>
+        <div class="content-center">
+            <h4 class="text-center"><a href="${contextPath}/changePassword">Change Password</a></h4>
+            <h4><a href="#" class="logout" onclick="document.forms['logoutForm'].submit()">Logout</a></h4>
+        </div>
     </c:if>
 </div>
 <script src="https://code.jquery.com/jquery-3.x-git.min.js"></script>

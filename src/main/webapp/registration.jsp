@@ -8,7 +8,6 @@
 <head>
     <meta charset="utf-8">
     <title>Create an account</title>
-
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/jquery-ui.min.css" rel="stylesheet">
@@ -18,62 +17,67 @@
 
 <div class="container">
 
-    <form:form method="POST" modelAttribute="userForm" class="form-signin">
-        <h2 class="form-signin-heading">Create your account</h2>
+    <form:form method="POST" modelAttribute="userForm" class="form-center">
+        <h2 class="form-center-heading">Create your account</h2>
         <spring:bind path="username">
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="text" path="username" class="form-control" placeholder="Username"
-                            autofocus="true"></form:input>
-                <form:errors path="username"></form:errors>
+                            autofocus="true"/>
+                <form:errors path="username"/>
             </div>
         </spring:bind>
 
         <spring:bind path="password">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
-                <form:errors path="password"></form:errors>
+                <form:input type="password" path="password" class="form-control" placeholder="Password"/>
+                <form:errors path="password"/>
             </div>
         </spring:bind>
 
         <spring:bind path="passwordConfirm">
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="password" path="passwordConfirm" class="form-control"
-                            placeholder="Confirm your password"></form:input>
-                <form:errors path="passwordConfirm"></form:errors>
+                            placeholder="Confirm your password"/>
+                <form:errors path="passwordConfirm"/>
             </div>
         </spring:bind>
 
         <spring:bind path="firstName">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="firstName" class="form-control" placeholder="First Name"></form:input>
-                <form:errors path="firstName"></form:errors>
+                <form:input type="text" path="firstName" class="form-control" placeholder="First Name"/>
+                <form:errors path="firstName"/>
             </div>
         </spring:bind>
 
         <spring:bind path="lastName">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"></form:input>
-                <form:errors path="lastName"></form:errors>
+                <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"/>
+                <form:errors path="lastName"/>
             </div>
         </spring:bind>
 
         <spring:bind path="email">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="email" class="form-control" placeholder="Email"></form:input>
-                <form:errors path="email"></form:errors>
+                <form:input type="text" path="email" class="form-control" placeholder="Email"/>
+                <form:errors path="email"/>
             </div>
         </spring:bind>
 
         <spring:bind path="birthday">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" id="datepicker" path="birthday" class="form-control" placeholder="Birthday"></form:input>
-                <form:errors path="birthday"></form:errors>
+                <form:input type="text" id="datepicker" path="birthday" class="form-control" placeholder="Birthday"/>
+                <form:errors path="birthday"/>
             </div>
         </spring:bind>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form:form>
 
+    <form:form method="GET" class="form-center" action="${contextPath}/login">
+        <div class="form-group">
+            <button class="btn btn-lg btn-secondary btn-block" type="submit">Cancel</button>
+        </div>
+    </form:form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.x-git.min.js"></script>
