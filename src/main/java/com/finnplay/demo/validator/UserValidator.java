@@ -45,7 +45,7 @@ public class UserValidator implements Validator {
             }
 
             ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "field.required");
-            if (userDTO.getPassword().length() < 1 || userDTO.getPassword().length() > 32) {
+            if (userDTO.getPassword().length() < 6 || userDTO.getPassword().length() > 32) {
                 errors.rejectValue("password", "password.invalid.length");
             }
 
